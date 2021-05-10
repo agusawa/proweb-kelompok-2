@@ -1,6 +1,6 @@
 <?php
 
-require_once './vendor/adodb/adodb-php/adodb.inc.php';
+require_once './adodb/adodb-php/adodb.inc.php';
 
 define('HOST', '127.0.0.1');
 define('USER', 'root');

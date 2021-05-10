@@ -3,15 +3,16 @@
 require_once './koneksi/conn.php';
 
 if ($_POST) {
-    $nim = $_POST['nim'];
-    $nama = $_POST['nama'];
-    $uts = $_POST['uts'];
-    $uas = $_POST['uas'];
-    $tugas = $_POST['tugas'];
+    $nim = addslashes($_POST['nim']);
+    $nama = addslashes($_POST['nama']);
+    $uts = $_POST['uts'] ? $_POST['uts'] : 0;
+    $uas = $_POST['uas'] ? $_POST['uas'] : 0;
+    $tugas = $_POST['tugas'] ? $_POST['tugas'] : 0;
 
     $handle = $db->Execute("INSERT INTO `mahasiswa` (`nim`, `nama`, `uts`, `uas`, `tugas`) VALUES ('$nim', '$nama', '$uts', '$uas', '$tugas')");
 
     echo "Data berhasil ditambahkan";
+    return;
 }
 ?>
 

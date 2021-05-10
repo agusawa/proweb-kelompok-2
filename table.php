@@ -38,15 +38,15 @@ function convertGrade($uts, $uas, $tugas)
     <tbody>
         <?php while ($mahasiswa = $dataMahasiswa->FetchNextObj()) : ?>
             <tr>
-                <td><?= $mahasiswa->nim ?></td>
-                <td><?= $mahasiswa->nama ?></td>
+                <td><?= htmlentities($mahasiswa->nim) ?></td>
+                <td><?= htmlentities($mahasiswa->nama) ?></td>
                 <td><?= $mahasiswa->uts ?></td>
                 <td><?= $mahasiswa->uas ?></td>
                 <td><?= $mahasiswa->tugas ?></td>
                 <td><?= convertGrade($mahasiswa->uts, $mahasiswa->uas, $mahasiswa->tugas) ?></td>
                 <td>
-                    <a href="" onclick="event.preventDefault(); tampilkanFormEdit('<?=$mahasiswa->nim?>')">Edit</a>
-                    <a href="" onclick="event.preventDefault(); hapus('<?=$mahasiswa->nim?>')">Delete</a>
+                    <a href="" onclick="event.preventDefault(); tampilkanFormEdit('<?= htmlentities($mahasiswa->nim) ?>')">Edit</a>
+                    <a href="" onclick="event.preventDefault(); hapus('<?= htmlentities($mahasiswa->nim) ?>')">Delete</a>
                 </td>
             </tr>
         <?php endwhile ?>
